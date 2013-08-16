@@ -1,4 +1,4 @@
-# jbcms
+# jbcms [![Build Status](https://travis-ci.org/xiaojue/jbcms.png?branch=master)](https://travis-ci.org/xiaojue/jbcms) [![依赖模块状态](https://david-dm.org/xiaojue/jbcms.png)](http://david-dm.org/xiaojue/jbcms)
 
 基于nodejs的cms系统
 
