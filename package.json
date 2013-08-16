@@ -11,7 +11,8 @@
         "cms"    
     ],
     "dependencies":{
-        "express":"3.x"
+        "express":"3.x",
+        "ejs":"~0.8.4"
     },
     "devDependencies":{
         "mocha":"*",
