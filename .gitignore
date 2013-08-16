@@ -4,3 +4,4 @@
 .gitCOMMIT_EDITMSG
 *.svn
 node_modules/*
+/.idea
