@@ -10,6 +10,7 @@ jbcms取名来自于js build cms的简写，是一款采用nodejs来开发的强
 ## 其它
 
 * [社区](https://github.com/xiaojue/jbcms/issues)
+* [编码规范](https://github.com/xiaojue/jbcms/wiki/codeStyle)
 
 ## License
 
