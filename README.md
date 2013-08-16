@@ -7,10 +7,6 @@
 jbcms取名来自于js build cms的简写，是一款采用nodejs来开发的强大的内容管理系统，力求简单，方便，轻巧，易扩展。
 本项目采用[WTFPL公共许可证](http://www.wtfpl.net/)，我们鼓励你们"想他妈的干嘛就干嘛"的一种程序员精神。
 
-## 安装部署
-
-## TEST
-
 ## 其它
 
 * [社区](https://github.com/xiaojue/jbcms/issues)
