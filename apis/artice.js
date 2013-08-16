@@ -1,5 +1,5 @@
 module.exports = function(app) {
-	var artice = {};
-	return artice;
+  var artice = {};
+  return artice;
 };
 

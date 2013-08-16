@@ -1,29 +1,25 @@
 {
-    "name":"jbcms",
-    "version":"0.0.1",
-    "author":[{
-      "name":"xiaojue",
-      "email":"designsor@gmail.com",
-      "url":"http://tuer.me/user/profile/designsor"
-    }],
-    "description":"a javascript build cms",
-    "keywords":[
-        "cms"    
-    ],
-    "dependencies":{
-        "express":"3.x",
-        "jsonfile":"1.0.0",
-        "express-load":"1.1.7",
-        "jugglingdb":"~0.2.x",
-        "ejs":"~0.8.4"
-    },
-    "devDependencies":{
-        "mocha":"*",
-        "jscover":"*"
-    },
-    "repository":{
-        "type":"git",
-        "url":"https://github.com/xiaojue/jbcms.git"
-    },
-    "license":"WTFPL"
+  "name":"jbcms",
+  "version":"0.0.1",
+  "author":[{
+    "name":"xiaojue",
+    "email":"designsor@gmail.com",
+    "url":"http://tuer.me/user/profile/designsor"
+  }],
+  "description":"a javascript build cms",
+  "keywords":[
+    "cms"
+  ],
+  "dependencies":{
+    "express":"3.x"
+  },
+  "devDependencies":{
+    "mocha":"*",
+    "jscover":"*"
+  },
+  "repository":{
+    "type":"git",
+    "url":"https://github.com/xiaojue/jbcms.git"
+  },
+  "license":"WTFPL"
 }
