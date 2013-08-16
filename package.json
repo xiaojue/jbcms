@@ -11,7 +11,7 @@
         "cms"    
     ],
     "dependencies":{
-        "expressjs":"3.x"
+        "express":"3.x"
     },
     "repository":{
         "type":"git",
