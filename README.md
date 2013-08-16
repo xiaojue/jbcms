@@ -28,6 +28,7 @@ jbcms取名来自于js build cms的简写，是一款采用nodejs来开发的强
 
 ## License
 
+```
 ( WTFPL )
 
 DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
@@ -43,3 +44,4 @@ as the name is changed.
   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
 
  0. You just DO WHAT THE FUCK YOU WANT TO.
+```
