@@ -8,7 +8,7 @@ var DB = require('config/mysqlDB.js');
 //var DB = require('config/mongodDB.js');
 
 app.set('db',DB);
-app.set('skin',config.skin);
+app.set('config',config);
 app.set('views',_dir + '/views');
 app.engine('.html',require('ejs').__express);
 app.set('view engine','html');

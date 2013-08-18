@@ -1,10 +1,13 @@
 module.exports = function(app) {
-	var skin = app.get('skin');
-	return {
-		index: function(req, res, next) {
-			var artice = req.app.apis.artice;
-			res.render(skin + '/index');
-		}
-	};
+  var skin = app.get('config').skin;
+  return {
+    index: function(req, res, next) {
+      var artice = req.app.apis.artice;
+      res.render(skin + '/index');
+    },
+    notFound:function(req,res){
+      res.send('404 page',404);
+    }
+  };
 };
 
