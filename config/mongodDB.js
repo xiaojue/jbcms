@@ -3,8 +3,8 @@ var jf = require('jsonfile');
 var config = jf.readFileSync('config/config.default.json');
 var dbConfig = config.db.mysql;
 var schema = new Schema('mongodb', {
-  url:'mongodb://127.0.0.1:27017/Jbcms',
-  database:'Jbcms'
+  url: 'mongodb://127.0.0.1:27017/Jbcms',
+  database: 'Jbcms'
 });
 var User = schema.define('User', {
   name: String,
@@ -49,3 +49,4 @@ var Pages = schema.define('Pages', {
 
 });
 module.exports = schema;
+
