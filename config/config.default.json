@@ -6,6 +6,7 @@
   "headers":[
     
   ],
+  "skin":"default",
   "host":"localhost",
   "port":"8081",
   "db":{

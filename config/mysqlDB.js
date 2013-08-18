@@ -9,7 +9,12 @@ var schema = new Schema('mysql', {
   database: dbConfig.database
 });
 var Setting = schema.define('Setting', {
-
+  sitename:String,
+  description:String,
+  skin:String,
+  host:String,
+  logo:String,
+  headers:Array
 });
 var User = schema.define('User', {
   name: String,
@@ -45,13 +50,23 @@ var Artice = schema.define('Artice', {
   }
 });
 var Comment = schema.define('Comment', {
-
+  cid:Number,
+  content:Schema.Text,
+  date: {
+    'type': Date,
+    'default': function() {
+      return new Date;
+    }
+  }
 });
 var Tags = schema.define('Tags', {
-
+  tid:Number,
+  name:String
 });
 var Pages = schema.define('Pages', {
-
+  pid:Number,
+  name:String,
+  description:String
 });
 schema.automigrate();
 module.exports = schema;

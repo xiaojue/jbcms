@@ -1,5 +1,5 @@
 module.exports = function(app) {
-  var site = app.controllers.site;
-  app.get('/',site.index);
+  var index = app.controllers.index;
+  app.get('/',index.index);
 };
 

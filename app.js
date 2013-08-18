@@ -7,7 +7,11 @@ var config = jf.readFileSync('config/config.default.json');
 var DB = require('config/mysqlDB.js');
 //var DB = require('config/mongodDB.js');
 
-app.set("db",DB);
+app.set('db',DB);
+app.set('skin',config.skin);
+app.set('views',_dir + '/views');
+app.engine('.html',require('ejs').__express);
+app.set('view engine','html');
 app.use(express['static'](_dir + '/public'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
