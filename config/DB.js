@@ -8,6 +8,9 @@ var schema = new Schema('mysql', {
 	host: dbConfig.host,
 	database: dbConfig.database
 });
+var Setting = schema.define('Setting', {
+
+});
 var User = schema.define('User', {
 	name: String,
 	uid: Number,
@@ -41,6 +44,14 @@ var Artice = schema.define('Artice', {
 		'index': true
 	}
 });
+var Comment = schema.define('Comment', {
+
+});
+var Tags = schema.define('Tags', {
+
+});
+var Pages = schema.define('Pages',{
+
+});
 schema.automigrate();
 module.exports = schema;
-
