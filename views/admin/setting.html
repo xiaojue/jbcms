@@ -1,5 +1,39 @@
 <% include common/header.html %>
-<div>
-  setting
-</div>
+  <div class="jumbotron">
+    <h2>开始配置你的Jbcms</h2>
+    <p>只需要简单的填写以下几处信息，就可以开始你的CMS之旅<p>
+  </div> 
+  <div class="row marketing">
+    <div class="col-lg-6">
+      <form class="form-horizontal" role="form" action="/config/init" method="post">
+        <div class="form-group">
+          <label for="Name">网站名称</label>
+          <input type="text" class="form-control input-lg" id="Name" maxlength="15" placeholder="网站名称">
+        </div>
+        <div class="form-group">
+          <label for="Description">网站一句话描述</label>
+          <input type="text" class="form-control input-lg" id="Description" maxlength="20" placeholder="网站名称">
+        </div>
+        <div class="form-group">
+          <label for="Email">邮件用户名</label>
+          <input type="email" class="form-control input-lg" id="Email" placeholder="邮件账户">
+        </div>
+        <div class="form-group">
+          <label for="Pwd">账户密码</label>
+          <input type="password" class="form-control input-lg" id="Pwd" placeholder="账户密码">
+        </div>
+        <div class="form-group">
+          <label for="Dbtype">数据库类型</label>
+          <select id="Dbtype" class="form-control input-lg">
+            <option value="mysql">Mysql</option>
+            <option value="mongodb">Mongodb</option>
+          </select>
+        </div>
+        <div class="form-group" id="DbContent"></div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">完成配置</button>
+        </div>
+      </form>
+    </div>
+  </div>
 <% include common/footer.html %>
