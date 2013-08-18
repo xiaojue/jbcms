@@ -11,19 +11,20 @@ jbcms取名来自于js build cms的简写，是一款采用nodejs来开发的强
 
 * [社区](https://github.com/xiaojue/jbcms/issues)
 * [编码规范](https://github.com/xiaojue/jbcms/wiki/codeStyle)
+* [代码提交](https://github.com/xiaojue/jbcms/issues/5)
 
 ## 贡献
 
 ```
  project  : jbcms
- repo age : 3 hours
- active   : 4 days
- commits  : 22
- files    : 13
+ repo age : 2 days
+ active   : 5 days
+ commits  : 47
+ files    : 29
  authors  : 
-    18  xiaojue                 81.8%
-     2  Jonah                   9.1%
-     2  Xiaojue                 9.1%
+    38  xiaojue                 80.9%
+     7  Jonah                   14.9%
+     2  Xiaojue                 4.3%
 ```
 
 ## License
