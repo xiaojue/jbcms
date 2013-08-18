@@ -4,7 +4,8 @@ var app = express();
 var _dir = __dirname;
 var jf = require('jsonfile');
 var config = jf.readFileSync('config/config.default.json');
-var DB = require('config/DB.js');
+var DB = require('config/mysqlDB.js');
+//var DB = require('config/mongodDB.js');
 
 app.set("db",DB);
 app.use(express['static'](_dir + '/public'));
