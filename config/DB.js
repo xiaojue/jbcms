@@ -1,6 +1,7 @@
 var Schema = require('jugglingdb').Schema;
-var schema = require('mysql', {
-	port: 3306
+var schema = new Schema('mysql', {
+	username: 'fuqiang',
+	database: 'test'
 });
 var User = schema.define('User', {
 	name: String,
@@ -13,9 +14,6 @@ var User = schema.define('User', {
 		}
 	},
 	purview: String
-},
-{
-	restPath: '../apis/users'
 });
 var Artice = schema.define('Artice', {
 	title: {
@@ -23,7 +21,7 @@ var Artice = schema.define('Artice', {
 		'length': 225
 	},
 	content: {
-		'type': Scheam.Text
+		'type': Schema.Text
 	},
 	date: {
 		'type': Date,
@@ -37,9 +35,7 @@ var Artice = schema.define('Artice', {
 		'default': false,
 		'index': true
 	}
-},
-{
-	restPath: '../apis/artice'
 });
 schema.automigrate();
 module.exports = schema;
+

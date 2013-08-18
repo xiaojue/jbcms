@@ -16,6 +16,7 @@
     "express-load":"1.1.7",
     "jugglingdb":"~0.2.x",
     "jugglingdb-mysql":"~0.0.1",
+    "mysql":"~2.0.0",
     "ejs":"~0.8.4"
   },
   "devDependencies":{
