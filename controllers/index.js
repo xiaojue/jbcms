@@ -1,5 +1,5 @@
 module.exports = function(app) {
-  var skin = app.get('config').skin;
+  var skin = app.locals.config.skin;
   return {
     index: function(req, res, next) {
       var artice = req.app.apis.artice;
