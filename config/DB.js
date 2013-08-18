@@ -1,7 +1,12 @@
 var Schema = require('jugglingdb').Schema;
+var jf = require('jsonfile');
+var config = jf.readFileSync('config/config.default.json');
+var dbConfig = config.db.mysql;
 var schema = new Schema('mysql', {
-	username: 'fuqiang',
-	database: 'test'
+	username: dbConfig.username,
+	password: dbConfig.password,
+	host: dbConfig.host,
+	database: dbConfig.database
 });
 var User = schema.define('User', {
 	name: String,

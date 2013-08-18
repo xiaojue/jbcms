@@ -6,6 +6,7 @@ var jf = require('jsonfile');
 var config = jf.readFileSync('config/config.default.json');
 var DB = require('config/DB.js');
 
+app.set("db",DB);
 app.use(express['static'](_dir + '/public'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
@@ -18,6 +19,7 @@ app.use(express.cookieSession({
 }));
 
 load('apis').then('controllers').then('routes').into(app);
+
 
 app.listen(config.port);
 console.log("%s running on %s port", config.host, config.port);

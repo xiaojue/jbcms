@@ -1,6 +1,6 @@
 module.exports = function(app) {
 	var db = app.get('db');
-	var Artice = db.models.Artice;
-	return new Artice;
+	var User = db.models.User;
+	return new User;
 };
 

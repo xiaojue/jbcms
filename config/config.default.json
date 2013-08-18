@@ -10,7 +10,10 @@
   "port":"8081",
   "db":{
     "mysql":{
-    
+      "host":"localhost",
+      "password":"3011354",
+      "username":"root",
+      "database":"Jbcms"
     }
   },
   "mail":{
