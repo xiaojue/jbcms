@@ -12,8 +12,11 @@ jbcms取名来自于js build cms的简写，是一款采用nodejs来开发的强
 * [社区](https://github.com/xiaojue/jbcms/issues)
 * [编码规范](https://github.com/xiaojue/jbcms/wiki/codeStyle)
 * [代码提交](https://github.com/xiaojue/jbcms/issues/5)
-* 开发调试
-fork 之后，每次pull后记得执行
+
+## 开发调试
+
+fork 之后，每次git pull后记得执行
+
 ```bash
 $ git submodule init //第一次执行init 之后执行update即可
 $ git submodule update
