@@ -18,6 +18,13 @@ module.exports = function(app) {
       } else {
         next();
       }
+    },
+    checkPost:function(req,res,next){
+      next(); 
+    },
+    saveSetting:function(req,res,next){
+      console.log(req.body);
+      next();      
     }
   };
 };

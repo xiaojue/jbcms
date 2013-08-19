@@ -2,12 +2,13 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <title>{{ config.sitename }} version {{ config.version }}</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta name="author" content="jbcmsteam">
     <link rel="shortcut icon" href="/favicon.png">
-    <title>{{ config.sitename }} version {{ config.version }}</title>
     <link href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/bootstrap/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    {% include admin/common/meta.html %}
   </head>
   <body>
     <div class="container">
