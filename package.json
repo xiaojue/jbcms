@@ -17,7 +17,7 @@
     "jugglingdb":"0.2.x",
     "jugglingdb-mysql":"latest",
     "jugglingdb-mongodb":"latest",
-    "express-liquid":"0.2.0",
+    "express-liquid":"0.2.2",
     "mongodb":">=0.9.9",
     "mysql":"~2.0.0"
   },
