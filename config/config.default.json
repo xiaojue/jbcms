@@ -7,6 +7,7 @@
   ],
   "skin":"default",
   "host":"localhost",
+  "jspath":"http://localhost:8081/",
   "port":"8081",
   "db":{
     "mysql":{
