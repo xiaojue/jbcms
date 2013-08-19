@@ -18,7 +18,7 @@ module.exports = function(app) {
     index: function(req, res, next) {
       var query = req.query;
       var view = Path.normalize(req.path).replace(/^\/|\/$/g, '');
-      var realfile = Path.resolve(app.settings.views, view + app.settings['view engine']);
+      var realfile = Path.join(app.settings.views, view + app.settings['view engine']);
       if (fs.existsSync(realfile)) {
         var context = new liquid.tinyliquid.Context();
         context.setLocals('config', config);
