@@ -18,7 +18,7 @@ jbcms取名来自于js build cms的简写，是一款采用nodejs来开发的强
 fork 之后，每次git pull后记得执行
 
 ```bash
-$ git submodule init //第一次执行init 之后执行update即可
+$ git submodule init 
 $ git submodule update
 $ npm install -d
 ```
