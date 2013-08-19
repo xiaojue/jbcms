@@ -1,5 +1,5 @@
 module.exports = function(app) {
-  var config = app.locals.config;
+  var config = app.get('config');
   return {
     checkConfig: function(req, res, next) {
       var isSetting = /^\/config\/setting$/.test(req.path);
