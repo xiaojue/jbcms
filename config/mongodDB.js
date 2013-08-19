@@ -6,6 +6,14 @@ var schema = new Schema('mongodb', {
   url: dbConfig.url,
   database: dbConfig.database
 });
+var Setting = schema.define('Setting', {
+  sitename:String,
+  description:String,
+  skin:String,
+  host:String,
+  logo:String,
+  headers:Array
+});
 var User = schema.define('User', {
   name: String,
   uid: Number,
