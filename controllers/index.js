@@ -6,7 +6,10 @@ function overviewMethod(controller, methods) {
   var method = methods.shift();
   if (controller.hasOwnProperty(method)) {
     if (methods.length) return overviewMethod(controller[method], methods);
-    else return controller[method];
+    else {
+      var handle = controller[method];
+      return typeof handle == 'function' ? handle: false;
+    }
   } else {
     return false;
   }
@@ -31,17 +34,9 @@ module.exports = function(app) {
       }
     },
     post: function(req, res, next) {
-      var path = req.path;
       var postPath = Path.normalize(req.path).replace(/^\/|\/$/g, '');
       var methods = postPath.split('/');
-      var postMethod = function(methods) {
-        var handle = methods.shift();
-        if (app.controllers.hasOwnProperty(handle)) {
-          var controller = app.controllers[handle];
-          return overviewMethod(controller, methods);
-        }
-        return false;
-      } (methods);
+      var postMethod = overviewMethod(app.controllers, methods);
       if (postMethod !== false) {
         postMethod(req, res, next);
       } else {
