@@ -10,8 +10,11 @@ exports.mix = function(target, source, covered) {
   return target;
 };
 
-exports.coveredJsonFile = function(file,obj){
+exports.extendJsonFile = function(file,obj){
   var json = jf.readFileSync(file);
-  var newjson = exports.mix(json,obj,true);
-  jf.writeFileSync(file,newjson);
+  return exports.mix(json,obj,true);
+};
+
+exports.coveredJsonFile = function(file,obj){
+  jf.writeFileSync(file,exports.extendJsonFile(file,obj));
 };
