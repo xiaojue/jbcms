@@ -81,9 +81,11 @@ jbcms.prototype = {
 	},
 	setConfig: function(path) {
 		this.config = help.extendJsonFile(path,this.config);
+    return this;
 	},
 	loadUserViews: function(skin) {
     this.app.set('skin',skin);
+    return this;
 	},
 	init: function() {
 		var config = this.config;
