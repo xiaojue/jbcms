@@ -2,11 +2,15 @@ module.exports = function(app) {
   var config = app.get('config');
   return {
     checkConfig: function(req, res, next) {
-      var isSetting = /^\/admin\/setting$/.test(req.path);
-      if (config.initSite || isSetting) {
-        next();
+      if (req.method == 'GET') {
+        var isSetting = /^\/admin\/setting$/.test(req.path);
+        if (config.initSite || isSetting) {
+          next();
+        } else {
+          res.redirect('admin/setting');
+        }
       } else {
-        res.redirect('admin/setting');
+        next();
       }
     },
     checkAdmin: function(req, res, next) {
@@ -19,12 +23,13 @@ module.exports = function(app) {
         next();
       }
     },
-    checkPost:function(req,res,next){
-      next(); 
-    },
-    saveSetting:function(req,res,next){
-      console.log(req.body);
-      next();      
+    saveSetting: function(req, res, next) {
+      if (req.method == 'POST') {
+        console.log(req.body);
+        next();
+      } else {
+        next();
+      }
     }
   };
 };

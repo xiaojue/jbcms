@@ -8,12 +8,10 @@ var path = require('path');
 var events = require('events');
 var expressLiquid = require('express-liquid');
 var help = require('utils/help');
-var ns = require('lei-ns');
 
 function jbcms() {
 	events.EventEmitter.call(this);
 	this.app = express();
-	this.loaders = [];
 	this.config = {
 		//default
 		"sitename": "jbcms",
@@ -67,18 +65,9 @@ jbcms.prototype = {
 			}
 		}));
 	},
-	load: function(model) {
-		this.loaders.push(model);
-		return this;
-	},
-	_load: function() {
-		var loaders = this.loaders,
-		l;
-		loaders.forEach(function(loader, i) {
-			if (i === 0) l = load(loader);
-			else l.then(loader);
-		});
-		if (l) l.into(this.app);
+	_load: function(path) {
+		if(this.loaders) this.loaders.then(path);
+    else this.loaders = load(path);
 	},
 	setConfig: function(path) {
 		this.config = help.extendJsonFile(path, this.config);
@@ -88,11 +77,15 @@ jbcms.prototype = {
 		this.app.set('skin', skin);
 		return this;
 	},
+  get:function(){
+  
+  },
 	init: function() {
 		var config = this.config;
 		this._setUp();
-    this.load('middlewares');
-		this._load();
+    this._load('middlewares');
+    this.loaders.into(this);
+    console.log(this);
 		this.app.listen(config.port);
 		console.log("%s running on %s port", config.host, config.port);
 	}
