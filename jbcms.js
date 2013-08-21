@@ -83,7 +83,9 @@ jbcms.prototype = {
   },
   _createNameSpace: function() {
     var loaded = {};
-    if(this.loaders) this.loaders.into(loaded);
+    if(this.loaders){
+      this.loaders.into(loaded);
+    }
     this.ns = ns.Namespace();
     var nss = this.ns;
     for (var model in loaded) {
@@ -92,6 +94,8 @@ jbcms.prototype = {
     for (var i in nss()) {
       nss()[i].init.onload.call(this);
     }
+    loaded.schema = this.schema;
+    loaded.ns = this.ns;
   },
   _setRoutes: function() {
     var self = this;
