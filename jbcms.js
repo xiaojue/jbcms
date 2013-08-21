@@ -8,6 +8,7 @@ var path = require('path');
 var events = require('events');
 var expressLiquid = require('express-liquid');
 var help = require('utils/help');
+var ns = require('lei-ns');
 
 function jbcms() {
 	events.EventEmitter.call(this);
@@ -80,16 +81,17 @@ jbcms.prototype = {
 		if (l) l.into(this.app);
 	},
 	setConfig: function(path) {
-		this.config = help.extendJsonFile(path,this.config);
-    return this;
+		this.config = help.extendJsonFile(path, this.config);
+		return this;
 	},
 	loadUserViews: function(skin) {
-    this.app.set('skin',skin);
-    return this;
+		this.app.set('skin', skin);
+		return this;
 	},
 	init: function() {
 		var config = this.config;
 		this._setUp();
+    this.load('middlewares');
 		this._load();
 		this.app.listen(config.port);
 		console.log("%s running on %s port", config.host, config.port);
