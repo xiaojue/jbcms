@@ -8,12 +8,23 @@ var fs = require('fs');
 var Path = require('path');
 var events = require('events');
 var expressLiquid = require('express-liquid');
-var ns = require('lei-ns');
 var help = require('utils/help');
+
+function forInbind(object, context) {
+  for (var i in object) {
+    if (typeof object[i] == 'function') {
+      object[i] = object[i].bind(context);
+    }
+  }
+  return object;
+}
 
 function jbcms() {
   events.EventEmitter.call(this);
   this.app = express();
+  this.models = {};
+  this.apis = {};
+  this.middlewares = {};
   this.config = {
     //default
     "sitename": "jbcms",
@@ -83,40 +94,38 @@ jbcms.prototype = {
   },
   _createNameSpace: function() {
     var loaded = {};
-    if(this.loaders){
+    if (this.loaders) {
       this.loaders.into(loaded);
     }
-    this.ns = ns.Namespace();
-    var nss = this.ns;
     for (var model in loaded) {
-      nss(model, loaded[model]);
+      this.apis[model] = forInbind(loaded[model].apis, this);
+      this.middlewares[model] = forInbind(loaded[model].middlewares, this);
     }
-    for (var i in nss()) {
-      nss()[i].init.onload.call(this);
+    for (var i in loaded) {
+      if (loaded[i].init) loaded[i].init.onload.call(this);
     }
-    loaded.schema = this.schema;
-    loaded.ns = this.ns;
+    this.loaded = loaded;
   },
   _setRoutes: function() {
     var self = this;
-    var nss = this.ns();
+    var loaded = this.loaded;
     var app = this.app;
-    for (var i in nss) {
-      var moddlewares = nss[i]['moddlewares'];
-      if (moddlewares) {
-        for (var handle in moddlewares) {
-          this.app.use(moddlewares[handle]);
+    for (var i in loaded) {
+      var middlewares = loaded[i]['middlewares'];
+      if (middlewares) {
+        for (var handle in middlewares) {
+          this.app.use(middlewares[handle]);
         }
       }
     }
     var ApiFilter = function() {
       var filters = [];
-      for (var i in nss) {
-        if (nss[i].apis) {
-          for (var k in nss[i].apis) {
+      for (var i in loaded) {
+        if (loaded[i].apis) {
+          for (var k in loaded[i].apis) {
             var f = [];
             f[0] = i + '.apis.' + k;
-            f[1] = nss[i].apis[k];
+            f[1] = loaded[i].apis[k];
             filters.push(f);
           }
         }
@@ -127,7 +136,7 @@ jbcms.prototype = {
       var query = req.query;
       var view = Path.normalize(req.path).replace(/^\/|\/$/g, '').split('/');
       var modelname = view.shift();
-      if (nss[modelname]) {
+      if (loaded[modelname]) {
         var realfile = Path.join(_dir + '/' + modelname + '/views', view + app.settings['view engine']);
         if (fs.existsSync(realfile)) {
           var context = new expressLiquid.tinyliquid.Context();
@@ -151,7 +160,7 @@ jbcms.prototype = {
     app.post('*', function(req, res, next) {
       var postPath = Path.normalize(req.path).replace(/^\/|\/$/g, '');
       var methods = postPath.split('/');
-      var controller = nss[methods[0]];
+      var controller = loaded[methods[0]];
       if (controller) {
         var postMethod = controller.postMethods[methods[1]];
         if (postMethod) {

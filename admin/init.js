@@ -1,3 +1,13 @@
-exports.onload = function(){
-  var setting = this.ns('setting');
+exports.onload = function() {
+  var Setting = this.schema.define('Setting', {
+    sitename: String,
+    description: String,
+    skin: String,
+    host: String,
+    logo: String,
+    headers: Array
+  });
+  this.models.Setting = Setting;
+  this.schema.automigrate();
 };
+

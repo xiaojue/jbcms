@@ -1,4 +1,4 @@
-module.exports = function(loaders) {
+module.exports = function() {
   return {
     checkSetting: function(req, res, next) {
       if (req.method == 'GET') {
