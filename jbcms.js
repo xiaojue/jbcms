@@ -8,7 +8,7 @@ var fs = require('fs');
 var Path = require('path');
 var events = require('events');
 var expressLiquid = require('express-liquid');
-var help = require('utils/help');
+var help = require('./utils/help');
 
 function forInbind(object, context) {
   for (var i in object) {
