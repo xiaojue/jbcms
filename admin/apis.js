@@ -9,12 +9,9 @@ module.exports = function() {
       Setting[key] = val;
       Setting.save(callback);
     },
-    get: function(id, key, callback) {
+    get: function(id,callback) {
       var Setting = this.models.Setting;
-      Setting.find(id, function(err, ret) {
-        if (err || ! ret) callback(err || '没有查询到信息');
-        else callback(null, ret[key]);
-      });
+      Setting.find(id, callback);
     }
   };
 };

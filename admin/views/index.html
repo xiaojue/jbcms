@@ -3,6 +3,10 @@
     <h2>开始配置你的Jbcms</h2>
     <p>只需要简单的填写以下几处信息，就可以开始你的CMS之旅<p>
   </div> 
+  {% assign settings = 1 | admin.apis.get %}
+  {% if settings %}
+    {{ settings.sitename }}
+  {% endif%}
   <div class="row marketing">
     <div class="col-lg-6">
       <form class="form-horizontal" role="form" action="/config/init" method="post">
